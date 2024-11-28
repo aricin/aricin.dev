@@ -2,26 +2,200 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
+
+  /* background-image: 
+    radial-gradient(circle at 10% 20%, rgba(76, 127, 237, 0.4) 0%, rgba(76, 127, 237, 0) 10%, transparent 90%),
+    radial-gradient(circle at 90% 30%, rgba(7, 57, 164, 0.4) 0%, rgba(7, 57, 164, 0) 10%, transparent 90%),
+    radial-gradient(circle at 30% 80%, rgba(12, 81, 229, 0.4) 0%, rgba(12, 81, 229, 0) 10%, transparent 90%),
+    radial-gradient(circle at 80% 90%, rgba(117, 156, 239, 0.4) 0%, rgba(117, 156, 239, 0) 10%, transparent 90%);
+  background-repeat: repeat; */
+
+  /* background-image: linear-gradient(
+    to bottom right,
+    rgba(253, 244, 227, 0.5),
+    rgba(253, 226, 228, 0.5),
+    rgba(250, 210, 225, 0.5),
+    rgba(255, 218, 193, 0.5),
+    rgba(181, 228, 140, 0.5)
+  ); */
+
+  /* background: linear-gradient(
+    to bottom,
+    #ffffff 0%,    
+    #f0f8ff 25%,   
+    #e6f2ff 50%,   
+    #f5f5ff 75%,    
+    #fff0f5 100%    
+  ); */
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    /* Light mode */
+    --background: 0 0% 100%;
+    /* --background: 60, 20%, 95%; */
+    /* --background: 210, 20%, 90%; */
+    --foreground: 222 47% 11%;
+    
+    /* Main background layers */
+    --background-secondary: 210 40% 98%;
+    --background-tertiary: 210 40% 96.1%;
+    
+    /* Card and hover states */
+    --card: 0 0% 100%;
+    /* --card: 210, 20%, 95%; */
+    /* --card: 210, 100%, 98%    ; */
+    /* --card: 208 100% 97%; */
+    --card-foreground: 222 47% 11%;
+    --card-hovered: 210 40% 98%;
+    --card-border: 220 13% 91%;
+    --card-border-hovered: 213 27% 84%;
+    
+    /* Text colors */
+    --text-primary: 222 47% 11%;
+    --text-secondary: 215.4 16.3% 46.9%;
+    --text-muted: 215.4 16.3% 56.9%;
+    
+    /* Accent colors */
+    /* --accent-primary: 214 85% 68%; */
+    /* --accent-primary: 221 82% 53%; */
+    --accent-primary: 210 100% 56%;
+    --accent-primary-foreground: 210 40% 98%;
+    --accent-secondary: 210 40% 96.1%;
+    --accent-secondary-foreground: 222.2 47.4% 11.2%;
+    
+    /* Borders */
+    /* --border: 0 0% 89.8%; */
+    --border: 210 100% 80%;
+    --border-strong: 216 12% 84%;
+    
+    /* Input elements */
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    /* Misc */
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark mode */
+    --background: 222 47% 5%;
+    --foreground: 213 31% 91%;
+    
+    /* Main background layers */
+    --background-secondary: 222 47% 8%;
+    --background-tertiary: 222 47% 10%;
+    
+    /* Card and hover states */
+    --card: 222 47% 8%;
+    --card-foreground: 213 31% 91%;
+    --card-hovered: 222 47% 10%;
+    --card-border: 222 47% 15%;
+    --card-border-hovered: 221.2 83.2% 53.3%;
+    
+    /* Text colors */
+    --text-primary: 213 31% 91%;
+    --text-secondary: 215.4 16.3% 76.9%;
+    --text-muted: 215.4 16.3% 66.9%;
+    
+    /* Accent colors */
+    /* --accent-primary: 214 85% 68%; */
+    --accent-primary: 210 100% 56%;
+    /* --accent-primary: 221 82% 53%; */
+    --accent-primary-foreground: 210 40% 98%;
+    --accent-secondary: 222 47% 10%;
+    --accent-secondary-foreground: 210 40% 98%;
+    
+    /* Borders */
+    --border: 218 27% 17%; /* border-gray-800 */
+    --border-strong: 222 47% 20%;
+    
+    /* Input elements */
+    --input: 222 47% 15%;
+    --ring: 224 76% 48%;
+
+    /* Misc */
+    --popover: 222 47% 5%;
+    --popover-foreground: 215 20.2% 91.2%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --muted: 222 47% 10%;
+    --muted-foreground: 215 20.2% 65.1%;
+  }
+}
+
+.bg-gradient-bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100%;
+  pointer-events: none;
+  z-index: -1; /* Ensures it's behind all content */
+}
+
+.bubble-1,
+.bubble-2,
+.bubble-3,
+.bubble-4 {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.3;
+  filter: blur(100px);
+}
+
+.bubble-1 {
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, #ff7e5f, transparent);
+  top: 10%;
+  left: 15%;
+}
+
+.bubble-2 {
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, #feb47b, transparent);
+  top: 50%;
+  left: 60%;
+}
+
+.bubble-3 {
+  width: 350px;
+  height: 350px;
+  background: radial-gradient(circle, #76b4bd, transparent);
+  bottom: 20%;
+  right: 20%;
+}
+
+.bubble-4 {
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, #d4a5a5, transparent);
+  bottom: 35%;
+  left: 30%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
