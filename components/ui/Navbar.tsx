@@ -100,8 +100,8 @@ export function CustomNav() {
   return (
     <>
       <NavigationMenu
-        className={`w-full px-4 py-4 bg-background backdrop-blur-md border-none sticky top-0 z-50 ${
-          menuOpen ? 'border-border' : 'border-border'
+        className={`w-full bg-transparent md:bg-navbar/95 md:backdrop-blur-lg px-4 py-4 border-b transition transition-colors sticky top-0 z-50 ${
+          menuOpen ? 'shadow-none' : 'shadow-none'
         }`}
       >
         <div className="relative flex items-center justify-between w-full">
@@ -114,7 +114,7 @@ export function CustomNav() {
           </div>
 
           {/* Mobile Menu Toggle Button */}
-          <div className="absolute right-0 md:hidden flex items-center">
+          <div className="absolute right-0 md:hidden flex items-center z-50">
             <button
               onClick={() => setMenuOpen(!menuOpen)}
               type="button"
@@ -136,6 +136,7 @@ export function CustomNav() {
                       key={service.title}
                       title={service.title}
                       href={service.href}
+                      className="hover:bg-card-hovered"
                     >
                       {service.description}
                     </ListItem>
@@ -153,6 +154,7 @@ export function CustomNav() {
                       key={service.title}
                       title={service.title}
                       href={service.href}
+                      className="hover:bg-card-hovered"
                     >
                       {service.description}
                     </ListItem>
@@ -185,19 +187,71 @@ export function CustomNav() {
         </div>
       </NavigationMenu>
 
+      {/* Mobile Menu Test */}
+      {/* <div
+        className={`fixed inset-0 transform transition-transform duration-300 ease-in-out z-40 ${
+          menuOpen ? 'translate-y-0 mt-16' : '-translate-y-full mt-0'
+        }`}
+
+      >
+        <div className="flex-col items-center py-4 space-y-4">
+          <ul className="flex flex-col items-center space-y-4">
+            <li>
+              <Link
+                href="/services/web-design"
+                className="text-foreground text-lg"
+                onClick={() => setMenuOpen(false)}
+              >
+                Web Development
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/seo/technical"
+                className="text-foreground text-lg"
+                onClick={() => setMenuOpen(false)}
+              >
+                SEO
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/contact"
+                className="text-foreground text-lg"
+                onClick={() => setMenuOpen(false)}
+              >
+                Contact
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/client-portal"
+                className="text-foreground text-lg"
+                onClick={() => setMenuOpen(false)}
+              >
+                Client Portal
+              </Link>
+            </li>
+            <li>
+              <ThemeToggle />
+            </li>
+          </ul>
+        </div>
+      </div> */}
+
       {/* Mobile Menu Overlay */}
-      <div
+      {/* <div
         className={`fixed inset-0 bg-black/40 z-30 transition-opacity duration-300 ease-in-out ${
           menuOpen ? 'opacity-100' : 'opacity-0 pointer-events-none'
         }`}
         onClick={() => setMenuOpen(false)}
         aria-hidden="true"
-      />
+      /> */}
 
       {/* Mobile Navigation Menu */}
       <div
-        className={`fixed inset-x-0 top-0 z-40 md:hidden border-none bg-background backdrop-blur-md transform transition-transform duration-300 ease-in-out pt-16 ${
-          menuOpen ? 'translate-y-0' : '-translate-y-full'
+        className={`fixed h-screen inset-x-0 top-0 z-40 md:hidden border-none bg-navbar/95 backdrop-blur-lg transform transition-transform duration-300 ease-in-out pt-32 ${
+          menuOpen ? 'translate-y-0' : '-translate-y-[calc(100%-60px)]'
         }`}
       >
         <div className="flex flex-col items-center py-4 space-y-4">

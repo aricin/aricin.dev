@@ -14,7 +14,7 @@ const SectionFeatures = () => {
         </h2>
         
         <div className="grid md:grid-cols-2 gap-8 mt-12">
-          <div className="p-6 bg-card rounded-lg border border-border hover:border-accent/50 transition-colors">
+          <div className="p-6 bg-card rounded-lg border border-border transition-colors">
             <div className="flex items-center gap-3 mb-4">
               <Shield className="w-6 h-6 text-accent" />
               <h3 className="text-xl font-bold">No WordPress Hassles</h3>
@@ -24,7 +24,7 @@ const SectionFeatures = () => {
               come with WordPress. This means a unique site that's secure and exactly how you want it.
             </p>
           </div>
-          <div className="p-6 bg-card rounded-lg border border-border hover:border-accent/50 transition-colors">
+          <div className="p-6 bg-card rounded-lg border border-border transition-colors">
             <div className="flex items-center gap-3 mb-4">
               <Gauge className="w-6 h-6 text-accent" />
               <h3 className="text-xl font-bold">Lightning-Fast Performance</h3>
@@ -34,7 +34,7 @@ const SectionFeatures = () => {
               load quickly, keeping users engaged and reducing bounce rates.
             </p>
           </div>
-          <div className="p-6 bg-card rounded-lg border border-border hover:border-accent/50 transition-colors">
+          <div className="p-6 bg-card rounded-lg border border-border transition-colors">
             <div className="flex items-center gap-3 mb-4">
               <Terminal className="w-6 h-6 text-accent" />
               <h3 className="text-xl font-bold">Build With Modern Technologies</h3>
@@ -44,7 +44,7 @@ const SectionFeatures = () => {
               efficient, and ready to handle future advancements.
             </p>
           </div>
-          <div className="p-6 bg-card rounded-lg border border-border hover:border-accent/50 transition-colors">
+          <div className="p-6 bg-card rounded-lg border border-border transition-colors">
             <div className="flex items-center gap-3 mb-4">
               <Rocket className="w-6 h-6 text-accent" />
               <h3 className="text-xl font-bold">Scalable Solutions</h3>

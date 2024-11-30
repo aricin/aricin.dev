@@ -3,12 +3,14 @@
 import React, { useState } from 'react';
 import { Code2, Settings, Briefcase, Search, Zap, ChevronRight, Gauge, Terminal, Rocket, Shield, Minus, Plus } from 'lucide-react';
 
+import Navbar from '@/components/ui/Navbar';
 import SectionHero from '@/components/ui/SectionHero';
 import SectionHi from '@/components/ui/SectionHi';
 import SectionFAQ from '@/components/ui/SectionFAQ';
 import SectionWhatIDo from '@/components/ui/SectionWhatIDo';
 import SectionServices from '@/components/ui/SectionServices'
 import SectionFeatures from '@/components/ui/SectionFeatures';
+import SectionInfiniteCarousel from '@/components/ui/SectionInfiniteCarousel';
 
 
 type ServiceKey = 
@@ -290,13 +292,24 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen text-foreground">
+      {/* <div className="gradient-pattern">
+        <Navbar />
+        <SectionHero />
+      </div> */}
       <SectionHero />
 
       <SectionHi />
 
-      <SectionWhatIDo />
+      <SectionServices initialService={'full-stack'}/>
 
-      <SectionServices />
+      {/* 
+        Remove this entirely or at least transfer some of the content over to SectionServices.
+        Might be better off just going on the homepage.
+        Maybe I can emphasize a few things in another section below the SectionServices.
+      */}
+      <SectionWhatIDo /> 
+
+      <SectionInfiniteCarousel />
 
       <SectionFeatures />
 

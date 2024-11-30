@@ -12,9 +12,11 @@ const config: Config = {
   		colors: {
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
+				navbar: 'hsl(var(--navbar))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
-  				foreground: 'hsl(var(--card-foreground))'
+  				foreground: 'hsl(var(--card-foreground))',
+					hovered: 'hsl(var(--card-hovered))'
   			},
   			popover: {
   				DEFAULT: 'hsl(var(--popover))',
@@ -87,12 +89,17 @@ const config: Config = {
           '0%, 100%': { opacity: '0' },
           '50%': { opacity: '1' },
         },
+				scroll: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-100%)' },
+        },
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out',
 				'wave': 'wave 1.5s',
 				blink: 'blink 1s step-end infinite',
+				scroll: 'scroll 20s linear infinite backwards',
   		}
   	},
 		backgroundImage: {
