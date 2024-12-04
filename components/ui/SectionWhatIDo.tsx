@@ -10,7 +10,7 @@ const SectionWhatIDo = () => {
       icon: Code2,
       title: 'Full-Stack Development',
       description:
-        "While I have some preferred tools, I always choose what's best one for the project, even if it's not on my usual list. Every problem is different and my goal is to find the optimal solution.",
+        "While I have some preferred tools, I always choose what's best for the project, even if it's not on my usual list. Every problem is different and my goal is to find the optimal solution.",
     },
     {
       icon: Settings,
