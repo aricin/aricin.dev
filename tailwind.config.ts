@@ -93,6 +93,26 @@ const config: Config = {
           '0%': { transform: 'translateX(0)' },
           '100%': { transform: 'translateX(-100%)' },
         },
+				fadeInUp: {
+          '0%': { transform: 'translatey(-10px)' },
+          '100%': { transform: 'translatey(0)' },
+        },
+				jiggle: {
+					'0%, 100%': { transform: 'rotate(0deg)' },
+					'10%': { transform: 'rotate(5deg)' },
+					'20%': { transform: 'rotate(-5deg)' },
+					'30%': { transform: 'rotate(5deg)' },
+					'40%': { transform: 'rotate(-5deg)' },
+					'50%': { transform: 'rotate(5deg)' },
+					'60%': { transform: 'rotate(-5deg)' },
+					'70%': { transform: 'rotate(5deg)' },
+					'80%': { transform: 'rotate(-5deg)' },
+					'90%': { transform: 'rotate(5deg)' },
+				},
+				'pulse-once': {
+          '0%, 100%': { transform: 'scale(1)', opacity: '1' },
+          '50%': { transform: 'scale(1.01)', opacity: '1' },
+        },
   		},
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
@@ -100,23 +120,14 @@ const config: Config = {
 				'wave': 'wave 1.5s',
 				blink: 'blink 1s step-end infinite',
 				scroll: 'scroll 20s linear infinite backwards',
+				fadeInUp: 'fadeInUp 0.5s ease-in-out',
+				jiggle: 'jiggle 0.8s ease-in-out',
+				'pulse-once': 'pulse-once 0.3s ease-out forwards',
   		}
   	},
 		backgroundImage: {
 			'grid-neutral-100': 'linear-gradient(to right, #f5f5f5 1px, transparent 1px), linear-gradient(to bottom, #f5f5f5 1px, transparent 1px)',
 			'grid-neutral-900': 'linear-gradient(to right, #171717 1px, transparent 1px), linear-gradient(to bottom, #171717 1px, transparent 1px)',
-			// 'gradient-pattern': `
-			// 	radial-gradient(circle at 20% 20%, rgba(173, 216, 230, 0.1) 0%, transparent 50%),
-			// 	radial-gradient(circle at 80% 40%, rgba(135, 206, 235, 0.1) 0%, transparent 50%),
-			// 	radial-gradient(circle at 50% 80%, rgba(176, 224, 230, 0.1) 0%, transparent 50%),
-			// 	radial-gradient(circle at 70% 60%, rgba(224, 255, 255, 0.1) 0%, transparent 50%)
-			// `,
-			// 'gradient-pattern': `
-			// 	radial-gradient(circle at 10% 20%, rgba(255, 0, 255, 0.2) 0%, transparent 70%),
-			// 	radial-gradient(circle at 90% 30%, rgba(32, 142, 255, 0.2) 0%, transparent 70%),
-			// 	radial-gradient(circle at 50% 80%, rgba(0, 255, 127, 0.2) 0%, transparent 70%),
-			// 	radial-gradient(circle at 70% 60%, rgba(255, 165, 0, 0.2) 0%, transparent 70%)
-			// `,
 			'gradient-pattern': `
 				radial-gradient(circle at 50% 40%, rgba(31, 143, 255, 0.2) 0%, transparent 60%),
 				radial-gradient(circle at 50% 60%, rgba(0, 100, 255, 0.2) 0%, transparent 60%),

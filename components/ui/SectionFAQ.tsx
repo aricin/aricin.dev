@@ -1,3 +1,5 @@
+'use client';
+
 import React, { useState } from 'react';
 import { Plus, Minus } from 'lucide-react';
 
@@ -37,7 +39,7 @@ const FAQSection = () => {
   const [openFaq, setOpenFaq] = useState<string>('1');
 
   return (
-    <Section className="py-16">
+    <Section className="pt-32">
       <Container>
         <div className="max-w-3xl mx-auto">
           <h2 className="text-2xl font-bold mb-8 text-accent">Frequently Asked Questions</h2>

@@ -7,7 +7,7 @@ import Container from '@/components/design/Container';
 
 const SectionFeatures = () => {
   return (
-    <Section className="py-40">
+    <Section className="pt-32">
       <Container>
         <h2 className="text-3xl font-bold mb-8 text-center bg-clip-text text-accent">
           Performant, Secure, Scalable
@@ -21,7 +21,7 @@ const SectionFeatures = () => {
             </div>
             <p className="text-card-foreground">
               I build your website from scratch, avoiding the limitations and security issues that 
-              come with WordPress. This means a unique site that's secure and exactly how you want it.
+              come with WordPress. This means a unique site that&apos;s secure and exactly how you want it.
             </p>
           </div>
           <div className="p-6 bg-card rounded-lg border border-border transition-colors">
@@ -40,7 +40,7 @@ const SectionFeatures = () => {
               <h3 className="text-xl font-bold">Build With Modern Technologies</h3>
             </div>
             <p className="text-card-foreground">
-              I use the latest tools and frameworks to create your website, ensuring it's up-to-date, 
+              I use the latest tools and frameworks to create your website, ensuring it&apos;s up-to-date, 
               efficient, and ready to handle future advancements.
             </p>
           </div>
@@ -50,7 +50,7 @@ const SectionFeatures = () => {
               <h3 className="text-xl font-bold">Scalable Solutions</h3>
             </div>
             <p className="text-card-foreground">
-              Whether you're just starting out or growing rapidly, your website will grow with you. 
+              Whether you&apos;re just starting out or growing rapidly, your website will grow with you. 
               I design sites that can handle increased traffic and new features without a hitch.
             </p>
           </div>

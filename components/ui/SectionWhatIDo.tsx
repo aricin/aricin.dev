@@ -10,7 +10,7 @@ const SectionWhatIDo = () => {
       icon: Code2,
       title: 'Full-Stack Development',
       description:
-        "While I have some preferred tools, I always choose the best one for the job, even if it's not on my usual list. My goal is to find the right solution for each project.",
+        "While I have some preferred tools, I always choose what's best one for the project, even if it's not on my usual list. Every problem is different and my goal is to find the optimal solution.",
     },
     {
       icon: Settings,
@@ -38,18 +38,25 @@ const SectionWhatIDo = () => {
     },
   ];
 
-  return (
-    <Section className="py-16">
-      <Container>
-        <h2 className="text-2xl font-bold mb-8 text-accent">What I can do for you...</h2>
+  const totalItems = services.length;
+  const itemsPerRowLg = 3;
+  const lastRowItemCount = totalItems % itemsPerRowLg || itemsPerRowLg;
+  const lastRowStartIndex = totalItems - lastRowItemCount;
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+  return (
+    <Section className="pt-32">
+      <Container>
+        <h2 className="text-2xl font-bold mb-8 text-accent">What I can do for you</h2>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-8">
           {services.map((service, index) => {
             const Icon = service.icon;
+            const colSpanClass =
+              index < lastRowStartIndex ? 'lg:col-span-2' : 'lg:col-span-3';
             return (
               <div
                 key={index}
-                className={`flex flex-col gap-3 p-6 bg-card rounded-lg border border-border transition-colors shadow-sm`}
+                className={`flex flex-col gap-3 p-6 bg-card rounded-lg border border-border transition-colors shadow-sm ${colSpanClass}`}
               >
                 <div className="flex items-center gap-3">
                   <Icon className="w-6 h-6 flex-shrink-0 text-accent" />
