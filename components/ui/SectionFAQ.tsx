@@ -67,7 +67,7 @@ const FAQSection = () => {
                   }`}
                 >
                   <div className="overflow-hidden">
-                    <div className="px-6 py-4 border-t border-accent/50 bg-card">
+                    <div className="px-6 py-4 border-t border-accent/50 bg-accent/10">
                       <p className="text-foreground">{faq.answer}</p>
                     </div>
                   </div>

@@ -16,7 +16,7 @@ const config: Config = {
   			card: {
   				DEFAULT: 'hsl(var(--card))',
   				foreground: 'hsl(var(--card-foreground))',
-					hovered: 'hsl(var(--card-hovered))'
+					hover: 'hsl(var(--card-hovered))'
   			},
   			popover: {
   				DEFAULT: 'hsl(var(--popover))',
@@ -123,17 +123,17 @@ const config: Config = {
 				fadeInUp: 'fadeInUp 0.5s ease-in-out',
 				jiggle: 'jiggle 0.8s ease-in-out',
 				'pulse-once': 'pulse-once 0.3s ease-out forwards',
-  		}
+  		},
+			backgroundImage: {
+				// 'grid-neutral-100': 'linear-gradient(to right, #f5f5f5 1px, transparent 1px), linear-gradient(to bottom, #f5f5f5 1px, transparent 1px)',
+				// 'grid-neutral-900': 'linear-gradient(to right, #171717 1px, transparent 1px), linear-gradient(to bottom, #171717 1px, transparent 1px)',
+				'gradient-pattern': `
+					radial-gradient(circle at 50% 40%, rgba(31, 143, 255, 0.2) 0%, transparent 60%),
+					radial-gradient(circle at 50% 60%, rgba(0, 100, 255, 0.2) 0%, transparent 60%),
+					radial-gradient(circle at 100% 100%, rgba(75, 0, 130, 0.2) 0%, transparent 60%)
+				`,
+			},
   	},
-		backgroundImage: {
-			'grid-neutral-100': 'linear-gradient(to right, #f5f5f5 1px, transparent 1px), linear-gradient(to bottom, #f5f5f5 1px, transparent 1px)',
-			'grid-neutral-900': 'linear-gradient(to right, #171717 1px, transparent 1px), linear-gradient(to bottom, #171717 1px, transparent 1px)',
-			'gradient-pattern': `
-				radial-gradient(circle at 50% 40%, rgba(31, 143, 255, 0.2) 0%, transparent 60%),
-				radial-gradient(circle at 50% 60%, rgba(0, 100, 255, 0.2) 0%, transparent 60%),
-				radial-gradient(circle at 100% 100%, rgba(75, 0, 130, 0.2) 0%, transparent 60%)
-			`,
-		},
 		// fontFamily: {
 		// 	sans: ['var(--font-geist)'],
 		// 	mono: ['var(--font-geist-mono)'],

@@ -63,7 +63,7 @@ body {
 
 
     --card-foreground: 222 47% 11%;
-    --card-hovered: 210 40% 98%;
+    --card-hovered: 210 40% 94%;
     --card-border: 220 13% 91%;
     --card-border-hovered: 213 27% 84%;
     
@@ -79,6 +79,9 @@ body {
     --accent-primary-foreground: 210 40% 98%;
     --accent-secondary: 210 40% 96.1%;
     --accent-secondary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 280 100% 56%;;
+    --tertiary: 210 100% 66%;
     
     /* Borders */
     /* --border: 0 0% 89.8%; */
@@ -131,6 +134,10 @@ body {
     --accent-primary-foreground: 210 40% 98%;
     --accent-secondary: 222 47% 10%;
     --accent-secondary-foreground: 210 40% 98%;
+
+    /* --secondary: 330 100% 56%; */
+    --secondary: 280 100% 56%;
+    --tertiary: 210 100% 66%;
     
     /* Borders */
     --border: 218 27% 17%; /* border-gray-800 */

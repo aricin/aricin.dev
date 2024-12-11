@@ -9,10 +9,18 @@ import SectionWhatIDo from '@/components/ui/SectionWhatIDo';
 import SectionServices from '@/components/ui/SectionServices';
 import SectionFeatures from '@/components/ui/SectionFeatures';
 import SectionInfiniteCarousel from '@/components/ui/SectionInfiniteCarousel';
+import SectionCTA from '@/components/ui/SectionCTA';
+import SectionInternalLinks from '@/components/ui/SectionInternalLinks';
 
-import { solutions } from './solutions';
-import { industries } from './industries';
-import { locations } from './locations';
+import { solutions } from '../solutions';
+import { industries } from '../industries';
+import { locations } from '../locations';
+
+type SolutionPageProps = {
+  params: {
+    slug?: string[];
+  };
+}
 
 export async function generateStaticParams() {
   const params = [];
@@ -51,14 +59,31 @@ export async function generateStaticParams() {
     }
   }
 
+  // Level 3: /solutions/{solution}/{state}
+  for (const solution of solutions) {
+    for (const state of locations) {
+      params.push({ slug: [solution.slug, state.slug] });
+    }
+  }
+
+  // Level 4: /solutions/{solution}/{state}/{city}
+  for (const solution of solutions) {
+    for (const state of locations) {
+      for (const city of state.cities) {
+        params.push({
+          slug: [solution.slug, state.slug, city.slug],
+        });
+      }
+    }
+  }
+
   return params;
 }
 
-
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: SolutionPageProps): Promise<Metadata> {
   const { slug = [] } = params;
 
-  const [solutionSlug, industrySlug, stateSlug, citySlug] = slug;
+  const [solutionSlug, param2, param3, param4] = slug;
 
   const solution = solutions.find((s) => s.slug === solutionSlug);
   if (!solution) {
@@ -68,6 +93,32 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   let industryTitle = '';
   let stateTitle = '';
   let cityTitle = '';
+
+  let industrySlug: string | undefined;
+  let stateSlug: string | undefined;
+  let citySlug: string | undefined;
+
+  if (param2) {
+    const industry = industries.find((i) => i.slug === param2);
+    const state = locations.find((s) => s.slug === param2);
+
+    if (industry) {
+      industrySlug = param2;
+      if (param3) {
+        stateSlug = param3;
+        if (param4) {
+          citySlug = param4;
+        }
+      }
+    } else if (state) {
+      stateSlug = param2;
+      if (param3) {
+        citySlug = param3;
+      }
+    } else {
+      return {};
+    }
+  }
 
   if (industrySlug) {
     const industry = industries.find((i) => i.slug === industrySlug);
@@ -103,16 +154,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 }
 
 
-interface PageProps {
-  params: {
-    slug?: string[];
-  };
-}
 
-export default function SolutionPage({ params }: PageProps) {
+export default function SolutionPage({ params }: SolutionPageProps) {
   const { slug = [] } = params;
 
-  const [solutionSlug, industrySlug, stateSlug, citySlug] = slug;
+  const [solutionSlug, param2, param3, param4] = slug;
 
   const solution = solutions.find((s) => s.slug === solutionSlug);
   if (!solution) {
@@ -122,6 +168,33 @@ export default function SolutionPage({ params }: PageProps) {
   let industryTitle = '';
   let stateTitle = '';
   let cityTitle = '';
+
+  let industrySlug: string | undefined;
+  let stateSlug: string | undefined;
+  let citySlug: string | undefined;
+
+  if (param2) {
+    // Check if param2 is an industry or state
+    const industry = industries.find((i) => i.slug === param2);
+    const state = locations.find((s) => s.slug === param2);
+
+    if (industry) {
+      industrySlug = param2;
+      if (param3) {
+        stateSlug = param3;
+        if (param4) {
+          citySlug = param4;
+        }
+      }
+    } else if (state) {
+      stateSlug = param2;
+      if (param3) {
+        citySlug = param3;
+      }
+    } else {
+      notFound();
+    }
+  }
 
   if (industrySlug) {
     const industry = industries.find((i) => i.slug === industrySlug);
@@ -160,29 +233,21 @@ export default function SolutionPage({ params }: PageProps) {
         category={solution.category}
       />
 
-      {/* Other sections */}
       <SectionWhatIDo />
       <SectionInfiniteCarousel />
       <SectionFeatures />
       <SectionFAQ />
+      <SectionCTA />
 
-      {/* Call to Action */}
-      <section className="mt-24 py-16 bg-gradient-to-r from-accent/20 to-accent/20 border-t border-border">
-        <div className="max-w-6xl mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4 text-accent">
-            Ready to Start Your Project?
-          </h2>
-          <p className="text-lg text-card-foreground mb-8">
-            Let&apos;s discuss how I can help bring your ideas to life.
-          </p>
-          <Link href="/contact">
-            <button className="w-full md:w-auto bg-accent hover:bg-transparent hover:text-accent border border-accent text-white font-semibold px-8 py-4 rounded-lg transition-colors duration-200 shadow-lg shadow-accent/20">
-              Schedule a free consultation
-            </button>
-          </Link>
-        </div>
-      </section>
+      <SectionInternalLinks
+        currentSolutionSlug={solutionSlug}
+        currentIndustrySlug={industrySlug}
+        currentStateSlug={stateSlug}
+        currentCitySlug={citySlug}
+      />
+
     </div>
   );
 }
+
 

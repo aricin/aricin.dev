@@ -3,6 +3,8 @@ import "./globals.css";
 
 import { ThemeProvider } from "@/components/design/ThemeProvider";
 import Navbar from "@/components/ui/Navbar";
+import NavbarNew from "@/components/ui/NavbarNew";
+import Footer from "@/components/ui/Footer";
 
 import { Montserrat } from 'next/font/google'
 
@@ -37,6 +39,7 @@ export default function RootLayout({
         >
           <Navbar />
           {children}
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
